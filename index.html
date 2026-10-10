@@ -3,107 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MERCADO LIVRE PROMOÇÕES</title>
+<meta name="theme-color" content="#ffe600">
+<meta name="description" content="Ofertas selecionadas com links de afiliado. Encontre bons achados para o seu dia a dia.">
+<title>Aqui é Barato | Ofertas e achadinhos</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#333}
-header{background:#ffe600;padding:18px 5%;display:flex;align-items:center;gap:25px;flex-wrap:wrap}
-.logo{font-size:24px;font-weight:800;color:#222}.search{flex:1;min-width:240px;display:flex}.search input{width:100%;padding:13px 16px;border:0;border-radius:7px 0 0 7px;font-size:16px}.search button{border:0;background:white;padding:0 18px;border-radius:0 7px 7px 0;cursor:pointer}
-nav{background:#fff;padding:12px 5%;box-shadow:0 1px 4px #ccc;display:flex;gap:18px;overflow:auto}nav a{color:#333;text-decoration:none;font-weight:bold;white-space:nowrap}
-.hero{padding:35px 5%;background:#fff;text-align:center}.hero h1{margin:0 0 10px;font-size:32px}.hero p{margin:0;color:#666}
-main{padding:25px 5%}.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}.topbar h2{margin:0}
-button,.btn{cursor:pointer;border:0;border-radius:7px;padding:11px 15px;font-weight:bold}.admin-btn{background:#333;color:white}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
-.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px #ddd;display:flex;flex-direction:column}.card img{width:100%;height:190px;object-fit:contain;background:#fff}.card-body{padding:15px;display:flex;flex-direction:column;flex:1}.card h3{font-size:16px;margin:0 0 10px}.price{font-size:21px;font-weight:800;margin:5px 0 15px}.buy{background:#3483fa;color:#fff;text-align:center;text-decoration:none;padding:12px;border-radius:7px;margin-top:auto}.buy:hover{background:#296bd1}
-.admin{display:none;background:#fff;margin:25px 5%;padding:22px;border-radius:10px;box-shadow:0 2px 8px #ddd}.admin.show{display:block}.admin h2{margin-top:0}.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form .full{grid-column:1/-1}.form input{width:100%;padding:11px;border:1px solid #ccc;border-radius:6px}.actions{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}.save{background:#00a650;color:white}.cancel{background:#ddd}.product-list{margin-top:25px}.row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;border-top:1px solid #eee;padding:10px 0}.row small{color:#777;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.edit{background:#ffe600}.delete{background:#e53935;color:#fff}
-footer{text-align:center;padding:30px;color:#777}
-@media(max-width:650px){.form{grid-template-columns:1fr}.form .full{grid-column:auto}.row{grid-template-columns:1fr auto}.row small{grid-column:1/-1}}
+:root{font-family:Arial,Helvetica,sans-serif;color:#333;background:#f5f5f5;font-synthesis:none;text-rendering:optimizeLegibility}
+*{box-sizing:border-box}
+body{margin:0;min-width:320px}
+button,input,select{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+.site-header{background:#ffe600;padding:16px max(5%,calc((100% - 1200px)/2));box-shadow:0 2px 5px #00000012}
+.header-main{display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;color:#222;text-decoration:none;white-space:nowrap}
+.brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#fff;font-size:23px}
+.brand-name{font-size:19px;font-weight:800;letter-spacing:-.5px}
+.search{display:flex;flex:1;max-width:700px;height:46px;box-shadow:0 1px 2px #0002}
+.search input{width:100%;min-width:0;border:0;border-radius:7px 0 0 7px;padding:0 16px;outline:none}
+.search input:focus{box-shadow:inset 0 0 0 2px #3483fa}
+.search button{width:54px;border:0;border-left:1px solid #eee;border-radius:0 7px 7px 0;background:#fff;cursor:pointer;font-size:20px}
+.header-note{margin-left:auto;font-size:12px;line-height:1.4;text-align:right;color:#4e4b30}
+.nav-wrap{background:#fff;border-bottom:1px solid #eee}
+nav{max-width:1200px;margin:auto;padding:13px 5%;display:flex;align-items:center;gap:25px;overflow:auto}
+nav a{color:#555;text-decoration:none;font-size:13px;white-space:nowrap}
+nav a:hover{color:#111}
+nav .manage-link{margin-left:auto}
+.container{width:min(1200px,90%);margin:auto}
+.hero{padding:32px 0 25px}
+.hero-box{position:relative;overflow:hidden;min-height:230px;padding:36px 42px;border-radius:12px;background:linear-gradient(110deg,#fff5ae 0%,#ffed55 58%,#ffe600 100%);display:flex;align-items:center}
+.hero-copy{position:relative;z-index:1;max-width:600px}
+.eyebrow{text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:1.2px;color:#655d00}
+.hero h1{font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-1.5px;margin:10px 0}
+.hero p{max-width:500px;margin:0;color:#554f16;line-height:1.55}
+.hero-art{position:absolute;right:7%;top:50%;transform:translateY(-50%);font-size:112px;filter:drop-shadow(0 10px 7px #5e510033);rotate:-8deg}
+.disclosure{margin-top:13px;color:#777;font-size:12px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:8px 0 17px}
+.section-head h2{font-size:22px;letter-spacing:-.4px;margin:0}
+.count{font-size:13px;color:#777}
+.category-list{display:flex;gap:9px;overflow:auto;padding:1px 1px 18px}
+.category{border:1px solid #e5e5e5;border-radius:20px;background:#fff;color:#555;padding:9px 16px;white-space:nowrap;cursor:pointer;font-size:13px}
+.category:hover,.category.active{border-color:#3483fa;background:#eef5ff;color:#2068c3}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-bottom:50px}
+.card{background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 1px 3px #00000014;display:flex;flex-direction:column;transition:box-shadow .18s,transform .18s;min-width:0}
+.card:hover{box-shadow:0 6px 18px #0000001a;transform:translateY(-2px)}
+.product-visual{height:205px;position:relative;display:grid;place-items:center;background:#fafafa}
+.product-visual img{width:100%;height:100%;object-fit:contain;background:#fff}
+.placeholder{font-size:70px;filter:drop-shadow(0 5px 3px #00000012)}
+.offer-tag{position:absolute;left:12px;top:12px;background:#e6f7ed;color:#16834a;border-radius:4px;padding:6px 8px;font-size:11px;font-weight:700}
+.card-body{padding:15px;display:flex;flex-direction:column;flex:1}
+.category-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.card h3{font-size:15px;font-weight:400;line-height:1.4;margin:0;min-height:42px}
+.price{font-size:21px;font-weight:700;letter-spacing:-.5px;margin:13px 0 15px}
+.price.muted{font-size:15px;font-weight:400;letter-spacing:0;color:#666}
+.buy{display:block;background:#3483fa;color:#fff;text-align:center;text-decoration:none;padding:12px;border-radius:6px;margin-top:auto;font-weight:700;font-size:14px;transition:background .15s}
+.buy:hover{background:#296bd1}
+.empty{grid-column:1/-1;background:#fff;border-radius:9px;text-align:center;padding:45px 15px;color:#777}
+.empty strong{display:block;color:#333;margin-bottom:8px}
+.admin{display:none;margin:8px auto 30px;padding:24px;background:#fff;border-radius:10px;box-shadow:0 1px 4px #00000012}
+.admin.show{display:block}
+.admin-head{display:flex;align-items:start;justify-content:space-between;gap:15px}
+.admin h2{margin:0 0 8px;font-size:21px}
+.admin p{margin:0 0 20px;color:#777;font-size:13px;line-height:1.5}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.form label{display:grid;gap:6px;font-size:12px;font-weight:700;color:#555}
+.form .full{grid-column:1/-1}
+.form input,.form select{width:100%;height:42px;padding:0 11px;border:1px solid #ddd;border-radius:6px;background:#fff}
+.form input:focus,.form select:focus{outline:2px solid #b8d4ff;border-color:#3483fa}
+.actions{margin-top:14px;display:flex;gap:9px;flex-wrap:wrap}
+.button{border:0;border-radius:6px;padding:11px 15px;font-weight:700;cursor:pointer}
+.save{background:#3483fa;color:white}
+.cancel{background:#eee;color:#444}
+.product-list{margin-top:23px}
+.product-list h3{font-size:15px;margin:0 0 8px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;border-top:1px solid #eee;padding:11px 0}
+.row-info{min-width:0}.row-info b{font-size:13px}.row small{display:block;color:#777;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:4px}
+.edit{background:#fff4a8}.delete{background:#fde5e5;color:#b42318}
+footer{border-top:1px solid #e6e6e6;background:#fff;text-align:center;padding:24px 5%;color:#777;font-size:12px;line-height:1.6}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.header-note{display:none}}
+@media(max-width:650px){.site-header{padding:12px 5%}.header-main{gap:12px;flex-wrap:wrap}.brand{flex:1}.brand-name{font-size:17px}.brand-mark{width:38px;height:38px}.search{order:2;flex-basis:100%;max-width:none;height:43px}.header-note{display:none}nav{gap:18px;padding-top:11px;padding-bottom:11px}.nav-wrap nav{width:100%}.container{width:92%}.hero{padding-top:20px}.hero-box{min-height:205px;padding:25px 23px}.hero-art{right:4%;font-size:75px;opacity:.45}.hero-copy{max-width:85%}.hero p{font-size:14px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-visual{height:155px}.placeholder{font-size:58px}.card-body{padding:12px}.card h3{font-size:14px;min-height:58px}.price{font-size:18px}.section-head h2{font-size:19px}.admin{padding:18px}.form{grid-template-columns:1fr}.form .full{grid-column:auto}.row{grid-template-columns:minmax(0,1fr) auto}.row .delete{grid-column:2}.row-info{grid-row:span 2}.row small{max-width:100%}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.product-visual{height:190px}.card h3{min-height:0}}
 </style>
 </head>
 <body>
-<header>
-<div class="logo">MERCADO LIVRE PROMOÇÕES</div>
-<div class="search"><input id="search" placeholder="Buscar ofertas..."><button onclick="render()">🔎</button></div>
+<header class="site-header">
+ <div class="header-main">
+  <a class="brand" href="#" aria-label="Aqui é Barato - início">
+   <span class="brand-mark" aria-hidden="true">🛍️</span><span class="brand-name">aqui é barato</span>
+  </a>
+  <form class="search" id="searchForm" role="search">
+   <input id="search" type="search" placeholder="Buscar ofertas e produtos..." aria-label="Buscar ofertas e produtos">
+   <button type="submit" aria-label="Buscar">⌕</button>
+  </form>
+  <div class="header-note">Achadinhos selecionados<br>para você economizar</div>
+ </div>
 </header>
-<nav><a href="#" onclick="showAll()">Início</a><a href="#produtos">Ofertas</a><a href="#admin" onclick="toggleAdmin()">⚙ Gerenciar produtos</a></nav>
-
-<section class="hero">
-<h1>Ofertas do Mercado Livre</h1>
-<p>Encontre produtos e acesse suas ofertas através dos seus links de afiliado.</p>
-</section>
-
-<section class="admin" id="admin">
-<h2>Gerenciar produtos</h2>
-<p>Altere a URL de afiliado, título, preço e imagem. As alterações ficam salvas neste navegador.</p>
-<div class="form">
-<input id="pTitle" placeholder="Nome do produto">
-<input id="pPrice" placeholder="Preço (ex.: R$ 99,90)">
-<input id="pUrl" class="full" placeholder="URL do afiliado Mercado Livre (https://meli.la/...)">
-<input id="pImage" class="full" placeholder="URL da imagem do produto (opcional)">
-</div>
-<div class="actions">
-<button class="save" onclick="saveProduct()">Salvar produto</button>
-<button class="cancel" onclick="clearForm()">Limpar</button>
-</div>
-<div class="product-list" id="productList"></div>
-</section>
-
-<main id="produtos">
-<div class="topbar"><h2>Ofertas em destaque</h2><span id="count"></span></div>
-<div class="grid" id="grid"></div>
+<div class="nav-wrap"><nav aria-label="Navegação principal">
+ <a href="#" onclick="showAll();return false">Início</a><a href="#produtos">Ofertas</a><a class="manage-link" href="#admin" onclick="toggleAdmin();return false">⚙ Gerenciar produtos</a>
+</nav></div>
+<main class="container">
+ <section class="hero">
+  <div class="hero-box"><div class="hero-copy">
+   <span class="eyebrow">Ofertas escolhidas a dedo</span>
+   <h1>Seu próximo achado está aqui.</h1>
+   <p>Produtos e ofertas interessantes, reunidos em um só lugar para facilitar sua busca.</p>
+  </div><div class="hero-art" aria-hidden="true">🎁</div></div>
+  <p class="disclosure">Este site pode receber uma comissão por compras feitas através dos links de afiliado, sem custo extra para você.</p>
+ </section>
+ <section class="admin container" id="admin" aria-label="Gerenciar produtos">
+  <div class="admin-head"><div><h2>Gerenciar produtos</h2><p>Cadastre ofertas usando seus links de afiliado. Os produtos ficam salvos neste navegador.</p></div></div>
+  <div class="form">
+   <label>Nome do produto<input id="pTitle" maxlength="120" placeholder="Ex.: Fone Bluetooth"></label>
+   <label>Preço ou chamada<input id="pPrice" maxlength="40" placeholder="Ex.: R$ 99,90"></label>
+   <label>Categoria<select id="pCategory"><option value="Ofertas">Ofertas</option><option value="Eletrônicos">Eletrônicos</option><option value="Casa">Casa</option><option value="Moda">Moda</option><option value="Beleza">Beleza</option><option value="Outros">Outros</option></select></label>
+   <label>URL da imagem (opcional)<input id="pImage" type="url" placeholder="https://..."></label>
+   <label class="full">Seu link de afiliado<input id="pUrl" type="url" placeholder="https://..."></label>
+  </div>
+  <div class="actions"><button class="button save" id="saveButton" type="button" onclick="saveProduct()">Salvar produto</button><button class="button cancel" type="button" onclick="clearForm()">Limpar</button></div>
+  <div class="product-list" id="productList"></div>
+ </section>
+ <section id="produtos" aria-labelledby="productsHeading">
+  <div class="section-head"><h2 id="productsHeading">Ofertas em destaque</h2><span class="count" id="count"></span></div>
+  <div class="category-list" id="categoryList" aria-label="Filtrar por categoria"></div>
+  <div class="grid" id="grid"></div>
+ </section>
 </main>
-<footer>MERCADO LIVRE PROMOÇÕES • Site de ofertas e links de afiliados</footer>
-
+<footer>Aqui é Barato • Vitrine independente de ofertas e links de afiliado.<br>Confira preço, disponibilidade e condições diretamente na loja antes de comprar.</footer>
 <script>
 const defaultProducts = [
- {id:1,title:"Produto em destaque",price:"Confira a oferta",url:"https://meli.la/25RPEzP",image:""},
- {id:2,title:"Oferta Mercado Livre",price:"Confira a oferta",url:"https://meli.la/1ur2aN7",image:""},
- {id:3,title:"Oferta Mercado Livre",price:"Confira a oferta",url:"https://meli.la/1yZiz6L",image:""},
- {id:4,title:"Oferta Mercado Livre",price:"Confira a oferta",url:"https://meli.la/2ZaK6U9",image:""},
- {id:5,title:"Oferta Mercado Livre",price:"Confira a oferta",url:"https://meli.la/1dhEKRd",image:""},
- {id:6,title:"Oferta Mercado Livre",price:"Confira a oferta",url:"https://meli.la/19Fvxsz",image:""}
+ {id:1,title:"Oferta selecionada",price:"Confira a oferta",category:"Ofertas",url:"https://meli.la/25RPEzP",image:""},
+ {id:2,title:"Oferta selecionada",price:"Confira a oferta",category:"Ofertas",url:"https://meli.la/1ur2aN7",image:""},
+ {id:3,title:"Oferta selecionada",price:"Confira a oferta",category:"Ofertas",url:"https://meli.la/1yZiz6L",image:""},
+ {id:4,title:"Oferta selecionada",price:"Confira a oferta",category:"Ofertas",url:"https://meli.la/2ZaK6U9",image:""},
+ {id:5,title:"Oferta selecionada",price:"Confira a oferta",category:"Ofertas",url:"https://meli.la/1dhEKRd",image:""},
+ {id:6,title:"Oferta selecionada",price:"Confira a oferta",url:"https://meli.la/19Fvxsz",image:""}
 ];
-let products = JSON.parse(localStorage.getItem("mlPromoProducts") || "null") || defaultProducts;
-let editingId = null;
+const storageKey="mlPromoProducts";
+let products=loadProducts();
+let editingId=null;
+let activeCategory="Todas";
+const categoryIcons={"Ofertas":"✨","Eletrônicos":"🎧","Casa":"🏠","Moda":"👟","Beleza":"✨","Outros":"🎁"};
 
-function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+function loadProducts(){
+ try{
+  const saved=JSON.parse(localStorage.getItem(storageKey)||"null");
+  return Array.isArray(saved)?saved:defaultProducts;
+ }catch(error){
+  console.error("Não foi possível carregar os produtos salvos.",error);
+  return defaultProducts;
+ }
+}
+function esc(value){return String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[char]));}
+function validWebUrl(value){
+ try{const parsed=new URL(value);return parsed.protocol==="https:"||parsed.protocol==="http:";}catch{return false;}
+}
 function render(){
- const q=document.getElementById("search").value.toLowerCase().trim();
- const list=products.filter(p=>(p.title+" "+p.url).toLowerCase().includes(q));
- document.getElementById("count").textContent=list.length+" produto(s)";
- document.getElementById("grid").innerHTML=list.map(p=>`
- <article class="card">
- ${p.image?`<img src="${esc(p.image)}" alt="${esc(p.title)}" onerror="this.style.display='none'">`:`<div style="height:190px;display:flex;align-items:center;justify-content:center;font-size:55px;background:#fafafa">🛒</div>`}
- <div class="card-body"><h3>${esc(p.title)}</h3><div class="price">${esc(p.price||"Confira a oferta")}</div>
- <a class="buy" href="${esc(p.url)}" target="_blank" rel="noopener sponsored">VER OFERTA</a></div></article>`).join("");
+ const query=document.getElementById("search").value.toLowerCase().trim();
+ const categories=["Todas",...new Set(products.map(product=>product.category||"Ofertas"))];
+ if(!categories.includes(activeCategory))activeCategory="Todas";
+ const filtered=products.filter(product=>{
+  const matchesQuery=(product.title+" "+product.category+" "+product.price).toLowerCase().includes(query);
+  return matchesQuery&&(activeCategory==="Todas"||(product.category||"Ofertas")===activeCategory);
+ });
+ document.getElementById("count").textContent=filtered.length+" produto(s)";
+ const categoryList=document.getElementById("categoryList");
+ categoryList.innerHTML=categories.map(category=>
+  `<button class="category${activeCategory===category?" active":""}" type="button" data-category="${esc(category)}" aria-pressed="${activeCategory===category}">${esc(category)}</button>`
+ ).join("");
+ categoryList.querySelectorAll(".category").forEach(button=>button.addEventListener("click",()=>setCategory(button.dataset.category)));
+ document.getElementById("grid").innerHTML=filtered.length?filtered.map(product=>`
+  <article class="card">
+   <div class="product-visual">${product.image&&validWebUrl(product.image)?`<img src="${esc(product.image)}" alt="${esc(product.title)}" loading="lazy" onerror="this.remove()">`:`<span class="placeholder" aria-hidden="true">${categoryIcons[product.category]||"🛍️"}</span>`}
+    <span class="offer-tag">Oferta</span>
+   </div>
+   <div class="card-body"><span class="category-label">${esc(product.category||"Ofertas")}</span><h3>${esc(product.title)}</h3>
+    <div class="price${!product.price||product.price==="Confira a oferta"?" muted":""}">${esc(product.price||"Confira a oferta")}</div>
+    ${validWebUrl(product.url)?`<a class="buy" href="${esc(product.url)}" target="_blank" rel="noopener sponsored">Ver oferta</a>`:`<span class="buy" aria-disabled="true">Link indisponível</span>`}
+   </div>
+  </article>`).join(""):`<div class="empty"><strong>Nenhuma oferta encontrada</strong>Tente outra busca ou selecione uma categoria diferente.</div>`;
  renderAdmin();
 }
 function save(){
- localStorage.setItem("mlPromoProducts",JSON.stringify(products)); render();
+ try{localStorage.setItem(storageKey,JSON.stringify(products));}
+ catch(error){console.error("Não foi possível salvar os produtos.",error);alert("Não foi possível salvar. Verifique o espaço disponível neste navegador.");return false;}
+ render();return true;
 }
 function saveProduct(){
- const title=document.getElementById("pTitle").value.trim()||"Oferta Mercado Livre";
+ const title=document.getElementById("pTitle").value.trim()||"Oferta selecionada";
  const price=document.getElementById("pPrice").value.trim()||"Confira a oferta";
+ const category=document.getElementById("pCategory").value;
  const url=document.getElementById("pUrl").value.trim();
  const image=document.getElementById("pImage").value.trim();
- if(!url){alert("Digite a URL do seu link de afiliado.");return;}
- if(editingId){const p=products.find(x=>x.id===editingId);Object.assign(p,{title,price,url,image});}
- else products.push({id:Date.now(),title,price,url,image});
- save(); clearForm();
+ if(!validWebUrl(url)){alert("Informe um link de afiliado válido começando com http:// ou https://.");return;}
+ if(image&&!validWebUrl(image)){alert("A URL da imagem precisa começar com http:// ou https://.");return;}
+ if(editingId){const product=products.find(item=>item.id===editingId);if(!product)return;Object.assign(product,{title,price,category,url,image});}
+ else products.push({id:Date.now(),title,price,category,url,image});
+ if(save())clearForm();
 }
 function editProduct(id){
- const p=products.find(x=>x.id===id); if(!p)return;
- editingId=id; pTitle.value=p.title;pPrice.value=p.price;pUrl.value=p.url;pImage.value=p.image||"";
- document.querySelector(".save").textContent="Atualizar produto"; document.getElementById("admin").classList.add("show");
+ const product=products.find(item=>item.id===id);if(!product)return;
+ editingId=id;
+ document.getElementById("pTitle").value=product.title;
+ document.getElementById("pPrice").value=product.price||"";
+ document.getElementById("pCategory").value=product.category||"Ofertas";
+ document.getElementById("pUrl").value=product.url;
+ document.getElementById("pImage").value=product.image||"";
+ document.getElementById("saveButton").textContent="Atualizar produto";
+ document.getElementById("admin").classList.add("show");
  window.scrollTo({top:document.getElementById("admin").offsetTop-10,behavior:"smooth"});
 }
-function deleteProduct(id){if(confirm("Excluir este produto?")){products=products.filter(p=>p.id!==id);save();}}
-function clearForm(){editingId=null;pTitle.value="";pPrice.value="";pUrl.value="";pImage.value="";document.querySelector(".save").textContent="Salvar produto";}
-function renderAdmin(){
- productList.innerHTML=products.map(p=>`<div class="row"><div><b>${esc(p.title)}</b><br><small>${esc(p.url)}</small></div><button class="edit" onclick="editProduct(${p.id})">Editar</button><button class="delete" onclick="deleteProduct(${p.id})">Excluir</button></div>`).join("");
+function deleteProduct(id){
+ if(!confirm("Excluir este produto?"))return;
+ products=products.filter(product=>product.id!==id);
+ save();
 }
+function clearForm(){
+ editingId=null;
+ document.getElementById("pTitle").value="";
+ document.getElementById("pPrice").value="";
+ document.getElementById("pCategory").value="Ofertas";
+ document.getElementById("pUrl").value="";
+ document.getElementById("pImage").value="";
+ document.getElementById("saveButton").textContent="Salvar produto";
+}
+function renderAdmin(){
+ document.getElementById("productList").innerHTML=`<h3>Produtos cadastrados (${products.length})</h3>`+products.map(product=>`
+  <div class="row"><div class="row-info"><b>${esc(product.title)}</b><small>${esc(product.url)}</small></div>
+  <button class="button edit" type="button" onclick="editProduct(${Number(product.id)})">Editar</button>
+  <button class="button delete" type="button" onclick="deleteProduct(${Number(product.id)})">Excluir</button></div>`).join("");
+}
+function setCategory(category){activeCategory=category;render();}
 function toggleAdmin(){document.getElementById("admin").classList.toggle("show");renderAdmin();}
-function showAll(){document.getElementById("search").value="";render();}
+function showAll(){document.getElementById("search").value="";activeCategory="Todas";render();}
 document.getElementById("search").addEventListener("input",render);
+document.getElementById("searchForm").addEventListener("submit",event=>{event.preventDefault();render();});
 render();
 </script>
 </body>
